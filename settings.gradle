@@ -1,0 +1,2 @@
+rootProject.name = "VibeKey"
+include ':app'

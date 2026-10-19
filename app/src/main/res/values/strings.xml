@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="keyboard_app_name">VibeKey</string>
+    <string name="ime_service_label">VibeKey — GIF &amp; Sticker Keyboard</string>
+    <string name="ime_subtype_label">Movie Dialogue GIFs, Stickers &amp; ABC</string>
+</resources>
