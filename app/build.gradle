@@ -1,8 +1,21 @@
 apply plugin: 'com.android.application'
 
+def envFile = rootProject.file('.env')
+def envProps = new Properties()
+if (envFile.exists()) {
+    envFile.withReader('UTF-8') { reader ->
+        envProps.load(reader)
+    }
+}
+def klipyApiKey = envProps.getProperty('KLIPY_API_KEY', '')
+
 android {
     namespace "com.cinepulse.keyboard"
     compileSdk 36
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId "com.cinepulse.keyboard"
@@ -10,6 +23,8 @@ android {
         targetSdk 36
         versionCode 1
         versionName "1.0.0"
+
+        buildConfigField "String", "KLIPY_API_KEY", "\"${klipyApiKey}\""
     }
 
     buildTypes {

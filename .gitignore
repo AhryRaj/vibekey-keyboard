@@ -25,3 +25,9 @@ captures/
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Environment & Secret files
+.env
+.env.*
+!.env.example
+

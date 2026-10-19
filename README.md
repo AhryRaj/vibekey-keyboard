@@ -104,11 +104,16 @@ vibekey-keyboard/
 
 VibeKey uses the official **KLIPY v2 API** (`https://api.klipy.com/v2/search`) for GIF and sticker search.
 
-To update or replace your API key, edit `OfficialMediaRepository.java`:
+API keys are loaded securely from `.env` via Gradle `BuildConfig` and are never committed to version control.
 
-```java
-public static final String DEVELOPER_TENOR_OR_KLIPY_API_KEY = "YOUR_KLIPY_API_KEY_HERE";
-```
+1. Copy `.env.example` to create your local `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` and set your key:
+   ```env
+   KLIPY_API_KEY=your_actual_klipy_key_here
+   ```
 
 > **Note**: For Play Store production releases with unlimited calls, register free at [partner.klipy.com](https://partner.klipy.com) and request production access.
 

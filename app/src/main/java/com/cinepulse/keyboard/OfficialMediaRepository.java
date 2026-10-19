@@ -35,12 +35,14 @@ public class OfficialMediaRepository {
     public static final String PREFS_NAME = "cinepulse_keyboard_prefs";
     public static final String KEY_GIPHY_API = "official_giphy_api_key";
 
-    // ========================================================================
-    // PLAY STORE / APP STORE PRODUCTION API KEYS (Set once by Developer — Free)
-    // ========================================================================
     public static final String OFFICIAL_TENOR_V2_ENDPOINT = "https://tenor.googleapis.com/v2/search";
     public static final String OFFICIAL_KLIPY_V2_ENDPOINT = "https://api.klipy.com/v2/search";
-    public static final String DEVELOPER_TENOR_OR_KLIPY_API_KEY = "BdIguOtSB8yfGP3BUKHlREdrtCG9AbB8R7v0bc64JBFg0891t5XQAIpLDaBkhwah";
+
+    // Loaded securely from .env via Gradle BuildConfig (never hardcoded in version control)
+    public static final String DEVELOPER_TENOR_OR_KLIPY_API_KEY =
+            (BuildConfig.KLIPY_API_KEY != null && !BuildConfig.KLIPY_API_KEY.trim().isEmpty())
+                    ? BuildConfig.KLIPY_API_KEY.trim()
+                    : "";
 
     private static final Map<String, List<MediaItem>> QUERY_CACHE = new ConcurrentHashMap<>();
     private static final Map<String, byte[]> BYTES_CACHE = new ConcurrentHashMap<>();
